@@ -109,6 +109,22 @@ If you use this dataset, please cite the thesis:
 }
 ```
 
+### Derived Sentiment Data
+
+In addition to the raw data sources described above, this project uses a derived dataset from AWS Comprehend that stores the sentiment computed for each entity mentioned in the [English-language] texts.
+
+**File:** [`eng_entity_sentiments_with_date.csv`](https://drive.google.com/file/d/1uIGCOWD3UqzfU7CY0nP3jhGycaJlOh1T/view?usp=sharing)
+
+This file is produced by [script/notebook name], which runs [sentiment model/method, e.g. a transformer-based classifier] over [source dataset] and assigns a sentiment to each entity mention. Each record also carries the publication date of the original text, so sentiment can be aggregated and analysed over time.
+
+| Column | Type | Description |
+|---|---|---|
+| `[entity]` | string | Name of the entity (e.g. person, organisation, location) |
+| `[sentiment]` | [float / label] | Sentiment toward the entity, [range e.g. -1 to 1, or positive/neutral/negative] |
+| `[date]` | date (YYYY-MM-DD) | Publication date of the source text |
+| `[doc_id]` | string | Identifier linking the record to the original text |
+
+
 ## Related
 
 * Analysis code and crawler: <https://github.com/toti2026/thesis_code>
